@@ -44,7 +44,7 @@ def main(argv):
 
   if e not in d.keys():
     print >> sys.stderr, "ERROR: not supported element"
-
+    usage()
 
   a = d[e][1]
   # select crystal structure  
