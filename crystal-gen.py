@@ -14,6 +14,7 @@ def usage():
   print >> sys.stderr, " -h             Show help"
   print >> sys.stderr, " -e <element>   Element (Supported: He, Li, Ne, Na, Fe, Cu, Ag, Pt, Au)"
   print >> sys.stderr, " -s <integer>   Integer number"
+  print >> sys.stderr, " -a             Include atomic number"
   print >> sys.stderr, "Syntax: python2 crystal.py -e Pt -s 1"
   sys.exit(1)
 
@@ -21,10 +22,11 @@ def main(argv):
   # init vars
   e = ''
   K = 0
+  atomic = 0 # atomic number flag
 
   # manage parameters
   try:
-    opts, args = getopt.getopt(argv,"he:s:")
+    opts, args = getopt.getopt(argv,"he:s:a")
   except getopt.GetoptError:
     usage()
 
@@ -35,6 +37,8 @@ def main(argv):
       e = arg
     elif opt == '-s':
       K = int(arg)
+    elif opt == '-a':
+      atomic = 1
 
   # Elements. In order to add new elements is a list of Z, lattice constant, and crystal structure.
   # data from http://periodictable.com/index.html
@@ -63,7 +67,10 @@ def main(argv):
         for l in v:
           if np.max( l+np.array([a*i, a*j, a*k]) ) <= a*K:
             vt = l+np.array([a*i, a*j, a*k])
-            print e, vt[0], vt[1], vt[2]
+            if atomic:
+              print e, d[e][0], vt[0], vt[1], vt[2]
+            else:
+              print e, vt[0], vt[1], vt[2]
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
