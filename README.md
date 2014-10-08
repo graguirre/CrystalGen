@@ -1,7 +1,9 @@
 CrystalGen
 ==========
 
-Python cubic lattice structure generator
+Python cubic lattice structure generator. Units: Angstrom.
+The outcome of the script will be write to stdout.
+
 
 Download
 ========
