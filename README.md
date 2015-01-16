@@ -15,6 +15,6 @@ Execute
 
 $ cd crystal
 
-$ python2 crystal-gen -e Pt -s 1
+$ python2 crystal-gen.py -e Pt -s 1
 
-
+There is a bash script (generate.sh) to make your life easier. Just concatenate atoms number with the crystal output, creating a XYZ file format.
