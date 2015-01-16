@@ -13,7 +13,7 @@ def usage():
   print >> sys.stderr, "Options:"
   print >> sys.stderr, " -h             Show help"
   print >> sys.stderr, " -e <element>   Element (Supported: He, Li, Ne, Na, Fe, Cu, Ag, Pt, Au)"
-  print >> sys.stderr, " -s <integer>   Integer number"
+  print >> sys.stderr, " -s <integer>   Crystal size"
   print >> sys.stderr, " -a             Include atomic number"
   print >> sys.stderr, "Syntax: python2 crystal.py -e Pt -s 1"
   sys.exit(1)
